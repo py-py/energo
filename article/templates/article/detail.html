@@ -1,0 +1,59 @@
+{% extends 'article/base.html' %}
+{% load i18n %}
+
+{% block container %}
+    <div class="row">
+        <div class="col-8">
+            <!-- Title -->
+            <h1 class="mt-4">
+                {{ article.title }}
+            </h1>
+
+            <!-- Author -->
+            <p class="lead">
+                by <a href="#">{{ article.author }}</a>
+            </p>
+            <hr>
+
+            <!-- Date/Time -->
+            <p>
+                {% trans 'Posted on ' %}{{ article.created|date:"r" }}
+            </p>
+            <hr>
+
+            <!-- Post Content -->
+            <div class="content">
+                {{ article.text }}
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col">
+                    {% include 'article/examples/base.html' %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <!-- Articles Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">{% trans 'Last Articles' %}</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <ul class="list-unstyled mb-0 mx-4">
+                            {% for article in last_articles %}
+                                <li>
+                                    <a href="{% url 'article:article' article.id %}">{{ article.title }}</a>
+                                </li>
+                                <li>
+                                    <hr class="mt-0"/>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
