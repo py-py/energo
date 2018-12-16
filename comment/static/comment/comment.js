@@ -1,14 +1,19 @@
 let loadComments = function () {
+    let buttonElement = '<button class="btn btn-success fixed-bottom m-4" data-toggle="modal" data-target="#exampleModal">Comment</button>';
+    $('#idCommentButton').append(buttonElement);
+
     let requestData = {
+        // TODO: change on window.location.href
         url: window.location.pathname
     };
-    $.get({
-        url: 'http://localhost:8000/comment/api/comments/',
+    $.ajax({
+        url: 'http://localhost:8000/comment/api/comments/html/',
+        method: 'POST',
         data: requestData,
-        dataType: "json",
-        success: function (data) {
-            alert(data);
-        }
+        dataType: 'html',
+        success: function (htmlData) {
+            $('body').append(htmlData);
+        },
     })
 };
 

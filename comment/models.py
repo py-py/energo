@@ -15,3 +15,7 @@ class Comment(MPTTModel):
 
     class MPTTMeta:
         pass
+
+    def __str__(self):
+        short_text = self.text[:20] + '...'
+        return '{}("{}")'.format(self.__class__.__name__, short_text)
