@@ -13,7 +13,7 @@ Get project:
 git clone https://github.com/py-py/energo.git
 ```
 
-Use next code lines for initing project and adding fake data:
+Use next code lines for initializing project and adding fake data:
 ```sh
 $ pip install -r requirements.txt
 $ python manage.py migrate
@@ -21,6 +21,7 @@ $ python manage.py add_superuser
 $ python manage.py fake_users
 $ python manage.py fake_articles
 $ python manage.py fake_comments
+$ python manage.py runserver
 ```
 
 **Requirements:**
