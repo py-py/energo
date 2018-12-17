@@ -63,7 +63,7 @@ window.onload = function (event) {
 
     if (!window.jQuery) {
         alert('JQuery is not loaded!');
-        // TODO: need to load bootstrap js files;
+        // TODO: need to load bootstrap js files and need to styled button and modal window;
         // loadJQuery();
         // loadPopper();
         // let lastScript = loadBootstrap();

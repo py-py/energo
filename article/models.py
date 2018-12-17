@@ -10,11 +10,11 @@ class ArticleManager(models.Manager):
 
 
 class Article(models.Model):
-    title = models.CharField(verbose_name=_('Наименование'), max_length=255)
-    text = models.TextField(verbose_name=_('Текст'))
+    title = models.CharField(verbose_name=_('Title'), max_length=255)
+    text = models.TextField(verbose_name=_('Text'))
     created = models.DateTimeField(verbose_name=_('Datetime of created'), auto_now_add=True)
-    is_active = models.BooleanField(verbose_name=_('State'), default=True)
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='articles')
+    is_active = models.BooleanField(verbose_name=_('Is Active?'), default=True)
+    author = models.ForeignKey('auth.User', verbose_name=_('Author'), on_delete=models.CASCADE, related_name='articles')
 
     objects = models.Manager()
     objects_active = ArticleManager()
