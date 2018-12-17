@@ -8,5 +8,5 @@ router.register(r'comments', CommentViewSet)
 urls = router.urls
 
 urlpatterns = [
-    path('comments/html/', CommentHtmlView.as_view(), name='comment-html-detail')
+    path('comments/html/', CommentHtmlView.as_view(), name='comment-html')
 ] + urls

@@ -19,5 +19,10 @@ class Article(models.Model):
     objects = models.Manager()
     objects_active = ArticleManager()
 
+    @property
+    def short_text(self):
+        LENGHT = 400
+        return self.text[:LENGHT] + '...' if len(self.text) >= LENGHT else self.text
+
     def __str__(self):
         return '{}(id:{})'.format(self.__class__.__name__, self.id, )

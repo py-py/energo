@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'article',
     'comment',
     'mptt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-REST_FRAMEWORK = {
-}

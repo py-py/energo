@@ -8,5 +8,5 @@ __all__ = ('CommentSerializer', )
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('id', 'text', )
-
+        fields = ('id', 'text', 'url')
+        extra_kwargs = {'url': {'write_only': True}}

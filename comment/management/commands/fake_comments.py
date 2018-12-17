@@ -18,8 +18,11 @@ class Command(BaseCommand):
 
         articles = Article.objects.all()
         for article in articles:
-            url = reverse('article:article', kwargs={'id_article': article.id})
+            # TODO: for local testing;
+            base_url = 'http://localhost:8000'
+            url = base_url + reverse('article:article', kwargs={'id_article': article.id})
+
             for _ in range(count):
                 comment = Comment(url=url, text=fake.text())
                 comment.save()
-            self.stdout.write(self.style.SUCCESS('Successfully added {} comments for post: {}.'.format(count, url)))
+            self.stdout.write(self.style.SUCCESS('Successfully added {} comments for post: {}'.format(count, url)))

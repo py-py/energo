@@ -13,13 +13,3 @@ class CommentViewSet(mixins.CreateModelMixin,
 
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
-
-    def get_queryset(self):
-        queryset = Comment.objects.all()
-        try:
-            url = self.request.GET['url']
-        except KeyError as exc:
-            pass
-        else:
-            queryset = queryset.filter(url=url)
-        return queryset
